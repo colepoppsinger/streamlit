@@ -25,9 +25,9 @@ def bechdel(title):
 #STREAMLIT CODE
 
 #title
-st.title("Cole's Movie Recommender")
+st.title("Movie Recommender + Bechdel Score")
 #header
-st.subheader("Looking for a movie to watch?")
+st.subheader("Top 5 most common movies based on user ratings and their corresponding Bechdel Score")
 
 #favorite movie query - text - any format
 query = st.text_input("What's your favorite movie?")
