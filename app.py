@@ -27,12 +27,12 @@ def bechdel(title):
 #title
 st.title("Movie Recommender + Bechdel Score")
 #header
-st.subheader("Top 5 most common movies based on user ratings and their corresponding Bechdel Score")
+st.subheader("Top 5 most similar movies based on user ratings and their corresponding Bechdel Score")
 
 #favorite movie query - text - any format
 query = st.text_input("What's your favorite movie?")
 # button that sends query
-try_it = st.button('Try it!')
+try_it = st.button('Show me movies and Bechdel Scores!')
 # button= search for movies with keywords inputted, makes df of options
 if try_it:
     # movie_list = []
