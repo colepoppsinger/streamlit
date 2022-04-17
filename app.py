@@ -27,27 +27,27 @@ def bechdel(title):
 #title
 st.title("Movie Recommender + Bechdel Score")
 #header
-st.subheader("Top 5 most similar movies based on user ratings and their corresponding Bechdel Score")
+st.subheader("Top 5 most common movies based on user ratings and their corresponding Bechdel Score")
 
 #favorite movie query - text - any format
-query = st.text_input("What's your favorite movie?")    
+query = st.text_input("What's your favorite movie?")
 # button that sends query
 try_it = st.button('Try it!')
 # button= search for movies with keywords inputted, makes df of options
 if try_it:
-    movie_list = []
-    for title in movies.loc[movies['title'].str.contains(query, case=False), 'title']:
-        movie_list.append(title)
-        movie_df = pd.DataFrame(movie_list, columns = ['movies'])
-    #st.write(movie_df)    
+    # movie_list = []
+    # for title in movies.loc[movies['title'].str.contains(query, case=False), 'title']:
+    #     movie_list.append(title)
+    #     movie_df = pd.DataFrame(movie_list, columns = ['movies'])
+    # #st.write(movie_df)    
 
     
-    option = st.selectbox('Which one of these did you mean?', options=movie_df['movies'])
-    st.write('you have selected', option) 
+    # option = st.selectbox('Which one of these did you mean?', options=movie_df)
+    # st.write('you have selected', option) 
     
     # show_me = st.button('show me movies!')
     # if show_me:
-    for title in movies.loc[movies['title'].str.contains(option, case=False), 'title']:
+    for title in movies.loc[movies['title'].str.contains(query, case=False), 'title']:
         # movie_list.append(title)
         # movie_df = pd.DataFrame(movie_list, columns = ['movies']) #this allows dropdown in streamlit
         results = recommend[title].sort_values(ascending=False)[1:6]
